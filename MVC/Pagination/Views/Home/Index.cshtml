@@ -1,0 +1,40 @@
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
+@model X.PagedList.PagedList<Usuarios>;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container text-center">
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+             @foreach (var item in Model)
+            {
+                <tr>
+                    <th score="row">@item.Id</th>
+                    <td>@item.Random</td>
+                    <td></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @Html.PagedListPager(Model, pagina => Url.Action("Index", new { pagina }), 
+        new PagedListRenderOptions {
+            DisplayLinkToFirstPage = PagedListDisplayMode.Never,
+            DisplayLinkToLastPage = PagedListDisplayMode.Never,
+            DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+            DisplayLinkToNextPage = PagedListDisplayMode.Always,
+            MaximumPageNumbersToDisplay = 5,
+            LiElementClasses = new string[] { "page-item" }, 
+                PageClasses = new string[] { "page-link" }
+        })
+</div>

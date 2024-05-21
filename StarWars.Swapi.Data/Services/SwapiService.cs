@@ -32,6 +32,7 @@ public class SwapiService : BaseService, ISwapiService
     {
         await SaveFilmsAsync();
         await SavePeopleAsync();
+        await SavePlanetsAsync();
         await SaveSpeciesAsync();
         await SaveStarshipsAsync();
         await SaveVehiclesAsync();
@@ -88,6 +89,30 @@ public class SwapiService : BaseService, ISwapiService
         await Task.WhenAll(tasks);
 
         SaveJsonFile<People>(peopleFinal, "people");
+    }
+
+    private async Task SavePlanetsAsync()
+    {
+        var planets = await _planetsService.GetSwapiPlanetsAsync();
+        var planetsFinal = new List<Planets>();
+        var tasks = new List<Task>();
+
+        foreach (var swapiPlanet in planets)
+        {
+            var planet = SwapiMapper.Mapper.Map<Planets>(swapiPlanet);
+
+            var fillTasks = new List<Task>
+            {
+                FillPeopleAsync(swapiPlanet.Residents, planet.Residents),
+                FillFilmsAsync(swapiPlanet.Films, planet.Films),
+            };
+
+            tasks.Add(Task.WhenAll(fillTasks).ContinueWith(t => planetsFinal.Add(planet)));
+        }
+
+        await Task.WhenAll(tasks);
+
+        SaveJsonFile<Planets>(planetsFinal, "planets");
     }
 
     private async Task SaveSpeciesAsync()

@@ -1,5 +1,6 @@
 using System.Text.Json;
 using StarWars.Swapi.Data.Models.MyTheFourth;
+using StarWars.Swapi.Data.Extensions;
 
 namespace StarWars.Swapi.Data.Services;
 
@@ -44,10 +45,12 @@ public class SwapiService : BaseService, ISwapiService
         var films = await _filmsService.GetSwapiFilmsAsync();
         var filmsFinal = new List<Films>();
         var tasks = new List<Task>();
-
+        var count = 1;
         foreach (var swapiFilm in films)
         {
             var film = SwapiMapper.Mapper.Map<Films>(swapiFilm);
+            film.Id = count++.ToString();
+            film.Slug = film.Title.GenerateSlug();
 
             var fillTasks = new List<Task>
             {
@@ -71,10 +74,13 @@ public class SwapiService : BaseService, ISwapiService
         var people = await _peopleService.GetSwapiPeopleAsync();
         var peopleFinal = new List<People>();
         var tasks = new List<Task>();
+        var count = 1;
 
         foreach (var swapiPeople in people)
         {
             var person = SwapiMapper.Mapper.Map<People>(swapiPeople);
+            person.Id = count++.ToString();
+            person.Slug = person.Name.GenerateSlug();
 
             var fillTasks = new List<Task>
             {
@@ -96,10 +102,13 @@ public class SwapiService : BaseService, ISwapiService
         var planets = await _planetsService.GetSwapiPlanetsAsync();
         var planetsFinal = new List<Planets>();
         var tasks = new List<Task>();
+        var count = 1;
 
         foreach (var swapiPlanet in planets)
         {
             var planet = SwapiMapper.Mapper.Map<Planets>(swapiPlanet);
+            planet.Id = count++.ToString();
+            planet.Slug = planet.Name.GenerateSlug();
 
             var fillTasks = new List<Task>
             {
@@ -120,10 +129,13 @@ public class SwapiService : BaseService, ISwapiService
         var species = await _speciesService.GetSwapiSpeciesAsync();
         var speciesFinal = new List<Species>();
         var tasks = new List<Task>();
+        var count = 1;
 
         foreach (var swapispecies in species)
         {
             var specie = SwapiMapper.Mapper.Map<Species>(swapispecies);
+            specie.Id = count++.ToString();
+            specie.Slug = specie.Name.GenerateSlug();
 
             var fillTasks = new List<Task>
             {
@@ -144,10 +156,13 @@ public class SwapiService : BaseService, ISwapiService
         var starships = await _starshipsService.GetSwapiStarshipsAsync();
         var starshipsFinal = new List<Starships>();
         var tasks = new List<Task>();
+        var count = 1;
 
         foreach (var swapiStarship in starships)
         {
             var starship = SwapiMapper.Mapper.Map<Starships>(swapiStarship);
+            starship.Id = count++.ToString();
+            starship.Slug = starship.Name.GenerateSlug();
 
             var fillTasks = new List<Task>
             {
@@ -168,10 +183,13 @@ public class SwapiService : BaseService, ISwapiService
         var vehicles = await _vehiclesService.GetSwapiVehiclesAsync();
         var vehiclesFinal = new List<Vehicles>();
         var tasks = new List<Task>();
+        var count = 1;
 
         foreach (var swapiVehicle in vehicles)
         {
             var vehicle = SwapiMapper.Mapper.Map<Vehicles>(swapiVehicle);
+            vehicle.Id = count++.ToString();
+            vehicle.Slug = vehicle.Name.GenerateSlug();
 
             var fillTasks = new List<Task>
             {

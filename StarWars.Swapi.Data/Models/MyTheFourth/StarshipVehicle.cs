@@ -1,6 +1,6 @@
 namespace StarWars.Swapi.Data.Models.MyTheFourth;
 
-public class StarshipVehicle
+public class StarshipVehicle : MyTheFourthBase
 {
     public string Name { get; set; } = string.Empty;
     public string Model { get; set; } = string.Empty;

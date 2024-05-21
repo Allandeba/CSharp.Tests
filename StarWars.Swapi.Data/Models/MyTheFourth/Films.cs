@@ -1,6 +1,6 @@
 namespace StarWars.Swapi.Data.Models.MyTheFourth;
 
-public class Films
+public class Films : MyTheFourthBase
 {
     public string Title { get; set; } = string.Empty;
     public int EpisodeId { get; set; } = 0;

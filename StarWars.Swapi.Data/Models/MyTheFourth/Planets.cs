@@ -1,6 +1,6 @@
 namespace StarWars.Swapi.Data.Models.MyTheFourth;
 
-public class Planets
+public class Planets : MyTheFourthBase
 {
     public string Name { get; set; } = string.Empty;
     public double RotationPeriod { get; set; } = 0;

@@ -1,6 +1,6 @@
 namespace StarWars.Swapi.Data.Models.MyTheFourth;
 
-public class People
+public class People : MyTheFourthBase
 {
     public string Name { get; set; } = string.Empty; 
     public double Height { get; set; } = 0;

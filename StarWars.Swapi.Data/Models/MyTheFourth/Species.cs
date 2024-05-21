@@ -1,6 +1,6 @@
 namespace StarWars.Swapi.Data.Models.MyTheFourth;
 
-public class Species
+public class Species : MyTheFourthBase
 {
     public string Name { get; set; } = string.Empty;
     public string Classification { get; set; } = string.Empty;

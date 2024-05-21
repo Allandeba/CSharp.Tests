@@ -15,5 +15,9 @@ public class People : MyTheFourthBase
     public List<Species> Species { get; set; } = new();
     public List<Vehicles> Vehicles { get; set; } = new();
     public List<Starships> Starships { get; set; } = new();
-    public string PeopleImageUrl { get; set; } = "https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-857.jpg";
+
+    public People()
+    {
+        ImgUrl = "https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-857.jpg";
+    }
 }

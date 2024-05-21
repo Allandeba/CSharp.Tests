@@ -14,5 +14,9 @@ public class Species : MyTheFourthBase
     public string Language { get; set; } = string.Empty;
     public List<People> People { get; set; } = new();
     public List<Films> Movies { get; set; } = new();
-    public string SpecieImageUrl { get; set; } = "https://img.freepik.com/free-photo/medium-shot-alien-monochrome_23-2151444790.jpg";
+
+    public Species()
+    {
+        ImgUrl = "https://img.freepik.com/free-photo/medium-shot-alien-monochrome_23-2151444790.jpg";
+    }
 }

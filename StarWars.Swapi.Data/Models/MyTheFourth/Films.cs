@@ -13,5 +13,9 @@ public class Films : MyTheFourthBase
     public List<Species> Species { get; set; } = new();
     public List<Vehicles> Vehicles { get; set; } = new();
     public List<Starships> Starships { get; set; } = new();
-    public string FilmsImageUrl { get; set; } = "https://img.freepik.com/free-photo/3d-rendering-person-watching-movie-with-popcorn_23-2151169440.jpg";
+
+    public Films()
+    {
+        ImgUrl = "https://img.freepik.com/free-photo/3d-rendering-person-watching-movie-with-popcorn_23-2151169440.jpg";
+    }
 }

@@ -14,5 +14,9 @@ public class Planets : MyTheFourthBase
     public List<People> Residents { get; set; } = new();
     public List<Films> Films { get; set; } = new();
     public string Url { get; set; } = string.Empty;
-    public string PlanetImageUrl { get; set; } = "https://img.freepik.com/free-photo/space-planet-science-night-generated-by-ai_188544-15619.jpg";
+
+    public Planets()
+    {
+        ImgUrl = "https://img.freepik.com/free-photo/space-planet-science-night-generated-by-ai_188544-15619.jpg";
+    }
 }
